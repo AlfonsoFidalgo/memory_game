@@ -22,6 +22,10 @@ let round = 1;
 let roundPlay = [];
 startButton.addEventListener("click", async () => {
   gameOn = true;
+  startButton.disabled = true;
+  document.querySelector(".board").style.display = "flex";
+  document.querySelector("#game-over").style.display = "none";
+  await new Promise((resolve) => setTimeout(resolve, 500));
   while (gameOn) {
     let duration = 500;
     let q = [];
@@ -38,8 +42,17 @@ startButton.addEventListener("click", async () => {
     gameOn = checkAnswer(q, userClicks);
     round++;
   }
+  console.log("Game over!");
+  showGameover();
   round = 1;
+  startButton.disabled = false;
 });
+
+function showGameover() {
+  document.querySelector(".board").style.display = "none";
+  document.querySelector("#game-over").style.display = "block";
+  document.querySelector("#score").textContent = round - 2;
+}
 
 function checkAnswer(q, userClicks) {
   let correct = true;
@@ -60,10 +73,6 @@ function waitForUserClicks(count) {
     const handleClick = (event) => {
       const clickedCard = event.target;
       userClicks.push(clickedCard);
-
-      // Visual feedback (optional)
-      //   clickedCard.classList.add("clicked");
-      //   setTimeout(() => clickedCard.classList.remove("clicked"), 300);
 
       if (userClicks.length === count) {
         cards.forEach((card) => card.removeEventListener("click", handleClick));
