@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Pixelify Sans';
+    font-family: 'Pixelify Sans' , sans-serif;
     background-color: #333;
     color: #EEE;
     font-size: 40px;
@@ -64,13 +64,13 @@ button {
     width: 160px;
     height: 60px;
     font-size: 20px;
-    color: #FFFFFF; /* Darker text for better contrast */
+    color: #FFFFFF;
     background-color: #4CAF50;
-    border: 2px solid #388E3C; /* Add a border for definition */
-    border-radius: 8px; /* Rounded corners */
+    border: 2px solid #388E3C;
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    transition: all 0.3s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 button:hover {
