@@ -17,6 +17,25 @@ const cardSixteen = document.querySelector("#c-16");
 
 const startButton = document.querySelector("#start");
 
+const cardFrequencies = {
+  "c-1": 261.63, // C4
+  "c-2": 293.66, // D4
+  "c-3": 329.63, // E4
+  "c-4": 349.23, // F4
+  "c-5": 392.0, // G4
+  "c-6": 440.0, // A4
+  "c-7": 493.88, // B4
+  "c-8": 523.25, // C5
+  "c-9": 587.33, // D5
+  "c-10": 659.25, // E5
+  "c-11": 698.46, // F5
+  "c-12": 783.99, // G5
+  "c-13": 880.0, // A5
+  "c-14": 987.77, // B5
+  "c-15": 1046.5, // C6
+  "c-16": 1174.66, // D6
+};
+
 let gameOn = false;
 let round = 1;
 let roundPlay = [];
@@ -33,7 +52,7 @@ startButton.addEventListener("click", async () => {
       let random = Math.floor(Math.random() * 16) + 1;
       const card = document.querySelector(`#c-${random}`);
       q.push(card);
-      await simulateMouseDownWithDuration(card, duration);
+      await simulateMouseDownWithDuration(card, duration, `c-${random}`);
     }
     console.log("Waiting for user input...");
     const userClicks = await waitForUserClicks(q.length);
@@ -65,6 +84,34 @@ function checkAnswer(q, userClicks) {
   return correct;
 }
 
+function playCardSound(cardId, duration = 500) {
+  const frequency = cardFrequencies[cardId];
+  if (frequency) {
+    playNote(frequency, duration);
+  }
+}
+
+function playNote(frequency, duration, type = "sine") {
+  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+  // Create an oscillator
+  const oscillator = audioContext.createOscillator();
+  oscillator.type = type; // Type of waveform: 'sine', 'square', 'triangle', 'sawtooth'
+  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // Frequency in Hz
+
+  // Connect the oscillator to the audio output
+  oscillator.connect(audioContext.destination);
+
+  // Start playing the note
+  oscillator.start();
+
+  // Stop the note after the specified duration
+  setTimeout(() => {
+    oscillator.stop();
+    audioContext.close(); // Clean up the audio context
+  }, duration);
+}
+
 function waitForUserClicks(count) {
   return new Promise((resolve) => {
     const userClicks = [];
@@ -84,7 +131,8 @@ function waitForUserClicks(count) {
   });
 }
 
-async function simulateMouseDownWithDuration(element, duration) {
+async function simulateMouseDownWithDuration(element, duration, cardId) {
+  playCardSound(cardId);
   const mousedownEvent = new MouseEvent("mousedown", {
     bubbles: true,
     cancelable: true,
@@ -103,6 +151,7 @@ async function simulateMouseDownWithDuration(element, duration) {
 }
 
 cardOne.addEventListener("mousedown", (event) => {
+  playCardSound(event.target.id);
   event.target.style.backgroundColor = "red";
   roundPlay.push(event.target);
 });
