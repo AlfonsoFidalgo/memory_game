@@ -107,7 +107,7 @@ cardOne.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardOne.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardTwo.addEventListener("mousedown", (event) => {
@@ -115,7 +115,7 @@ cardTwo.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardTwo.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardThree.addEventListener("mousedown", (event) => {
@@ -123,7 +123,7 @@ cardThree.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardThree.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardFour.addEventListener("mousedown", (event) => {
@@ -131,7 +131,7 @@ cardFour.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardFour.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardFive.addEventListener("mousedown", (event) => {
@@ -139,7 +139,7 @@ cardFive.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardFive.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardSix.addEventListener("mousedown", (event) => {
@@ -147,7 +147,7 @@ cardSix.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardSix.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardSeven.addEventListener("mousedown", (event) => {
@@ -155,7 +155,7 @@ cardSeven.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardSeven.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardEight.addEventListener("mousedown", (event) => {
@@ -163,7 +163,7 @@ cardEight.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardEight.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardNine.addEventListener("mousedown", (event) => {
@@ -171,7 +171,7 @@ cardNine.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardNine.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardTen.addEventListener("mousedown", (event) => {
@@ -179,7 +179,7 @@ cardTen.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardTen.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardEleven.addEventListener("mousedown", (event) => {
@@ -187,7 +187,7 @@ cardEleven.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardEleven.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardTwelve.addEventListener("mousedown", (event) => {
@@ -195,7 +195,7 @@ cardTwelve.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardTwelve.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardThirteen.addEventListener("mousedown", (event) => {
@@ -203,7 +203,7 @@ cardThirteen.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardThirteen.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardFourteen.addEventListener("mousedown", (event) => {
@@ -211,7 +211,7 @@ cardFourteen.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardFourteen.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardFifteen.addEventListener("mousedown", (event) => {
@@ -219,7 +219,7 @@ cardFifteen.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardFifteen.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });
 
 cardSixteen.addEventListener("mousedown", (event) => {
@@ -227,5 +227,5 @@ cardSixteen.addEventListener("mousedown", (event) => {
   roundPlay.push(event.target);
 });
 cardSixteen.addEventListener("mouseup", (event) => {
-  event.target.style.backgroundColor = "grey";
+  event.target.style.backgroundColor = "#555";
 });

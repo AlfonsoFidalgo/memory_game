@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Pixelify Sans';
+    background-color: #333;
+    color: #EEE;
+    font-size: 40px;
 }
 
 
@@ -18,8 +21,16 @@
 
 #game-over p {
     font-size: 30px;
-    color: black;
+    color: #EEE;
     text-align: center;
+}
+
+#game-over span {
+    font-size: 50px;
+    color: #EEE;
+    text-align: center;
+    display: block;
+    margin-top: 8px;
 }
 
 .board {
@@ -33,8 +44,13 @@
 .card {
     width: 150px;
     height: 150px;
-    background-color: grey;
-    border: 1px solid black;
+    background-color: #555;
+    border: 2px solid #333;
+    border-radius: 8px;
+}
+
+.card:hover {
+    background-color: #666;
 }
 
 h1 {
@@ -48,32 +64,32 @@ button {
     width: 160px;
     height: 60px;
     font-size: 20px;
-    color: #333; /* Darker text for better contrast */
-    background-color: mintcream;
-    border: 2px solid #333; /* Add a border for definition */
+    color: #FFFFFF; /* Darker text for better contrast */
+    background-color: #4CAF50;
+    border: 2px solid #388E3C; /* Add a border for definition */
     border-radius: 8px; /* Rounded corners */
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     transition: all 0.3s ease; /* Smooth hover effects */
 }
 
 button:hover {
-    background-color: #f0fff0;
+    background-color: #45A049;
     transform: translateY(-2px); 
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 
 button:active {
     transform: translateY(0);
-    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
-    background-color: #e6ffee;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
+    background-color: #388E3C;
 }
 
 button:disabled {
-    background-color: #dcdcdc;
-    color: #a9a9a9;
-    border-color: #a9a9a9;
+    background-color: #A5D6A7;
+    color: #FFFFFF;
+    border-color: #81C784;
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
