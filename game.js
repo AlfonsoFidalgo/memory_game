@@ -84,14 +84,14 @@ function checkAnswer(q, userClicks) {
   return correct;
 }
 
-function playCardSound(cardId, duration = 500) {
+function playCardSound(cardId, duration = 500, player = "computer") {
   const frequency = cardFrequencies[cardId];
   if (frequency) {
-    playNote(frequency, duration);
+    return playNote(frequency, duration, player);
   }
 }
 
-function playNote(frequency, duration, type = "sine") {
+function playNote(frequency, duration, player, type = "sine") {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
   // Create an oscillator
@@ -105,6 +105,9 @@ function playNote(frequency, duration, type = "sine") {
   // Start playing the note
   oscillator.start();
 
+  if (player !== "computer") {
+    return [oscillator, audioContext];
+  }
   // Stop the note after the specified duration
   setTimeout(() => {
     oscillator.stop();
@@ -150,131 +153,213 @@ async function simulateMouseDownWithDuration(element, duration, cardId) {
   await new Promise((resolve) => setTimeout(resolve, duration));
 }
 
+let oscillatorGlobal;
+let audioContextGlobal;
+
 cardOne.addEventListener("mousedown", (event) => {
-  playCardSound(event.target.id);
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "red";
   roundPlay.push(event.target);
 });
 cardOne.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardTwo.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "blue";
   roundPlay.push(event.target);
 });
 cardTwo.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardThree.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "green";
   roundPlay.push(event.target);
 });
 cardThree.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardFour.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "yellow";
   roundPlay.push(event.target);
 });
 cardFour.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardFive.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "orange";
   roundPlay.push(event.target);
 });
 cardFive.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardSix.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "pink";
   roundPlay.push(event.target);
 });
 cardSix.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardSeven.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "cyan";
   roundPlay.push(event.target);
 });
 cardSeven.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardEight.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "coral";
   roundPlay.push(event.target);
 });
 cardEight.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardNine.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "palegreen";
   roundPlay.push(event.target);
 });
 cardNine.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardTen.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "purple";
   roundPlay.push(event.target);
 });
 cardTen.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardEleven.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "sandybrown";
   roundPlay.push(event.target);
 });
 cardEleven.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardTwelve.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "sienna";
   roundPlay.push(event.target);
 });
 cardTwelve.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardThirteen.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "skyblue";
   roundPlay.push(event.target);
 });
 cardThirteen.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardFourteen.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "snow";
   roundPlay.push(event.target);
 });
 cardFourteen.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardFifteen.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "teal";
   roundPlay.push(event.target);
 });
 cardFifteen.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
 
 cardSixteen.addEventListener("mousedown", (event) => {
+  [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+  oscillatorGlobal = oscillator;
+  audioContextGlobal = audioContext;
   event.target.style.backgroundColor = "tomato";
   roundPlay.push(event.target);
 });
 cardSixteen.addEventListener("mouseup", (event) => {
+  oscillatorGlobal.stop();
+  audioContextGlobal.close();
   event.target.style.backgroundColor = "#555";
 });
