@@ -44,7 +44,9 @@ const cardFrequencies = {
 
 let gameOn = false;
 let round = 1;
-let roundPlay = [];
+let oscillatorGlobal;
+let audioContextGlobal;
+
 startButton.addEventListener("click", async () => {
   gameOn = true;
   startButton.disabled = true;
@@ -80,14 +82,12 @@ function showGameover() {
 }
 
 function checkAnswer(q, userClicks) {
-  let correct = true;
   for (let i = 0; i < q.length; i++) {
     if (q[i] !== userClicks[i]) {
-      correct = false;
-      break;
+      return false;
     }
   }
-  return correct;
+  return true;
 }
 
 function playCardSound(cardId, duration = 500, player = "computer") {
@@ -155,16 +155,12 @@ async function simulateMouseDownWithDuration(element, duration, cardId) {
   await new Promise((resolve) => setTimeout(resolve, duration));
 }
 
-let oscillatorGlobal;
-let audioContextGlobal;
-
 cards.forEach((card, index) => {
   card.addEventListener("mousedown", (event) => {
     [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
     oscillatorGlobal = oscillator;
     audioContextGlobal = audioContext;
     event.target.style.backgroundColor = cardColors[index];
-    roundPlay.push(event.target);
   });
 
   card.addEventListener("mouseup", (event) => {
