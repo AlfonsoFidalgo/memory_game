@@ -3,22 +3,22 @@ const cards = document.querySelectorAll(".card");
 const startButton = document.querySelector("#start");
 
 const cardColors = [
-  "#FF5733",
-  "#33FF57",
-  "#3357FF",
-  "#FFD700",
-  "#FF33A1",
-  "#33FFF5",
-  "#A133FF",
-  "#FF8C33",
-  "#33FF8C",
-  "#8C33FF",
-  "#33D4FF",
-  "#FF3380",
-  "#80FF33",
-  "#3380FF",
-  "#FF8033",
-  "#8033FF",
+  "#FF5733", // Vibrant Red
+  "#33FF57", // Bright Green
+  "#3357FF", // Bright Blue
+  "#FFD700", // Gold
+  "#FF33A1", // Pink
+  "#33FFF5", // Aqua Blue
+  "#A133FF", // Purple
+  "#FF8C33", // Orange
+  "#8C33FF", // Violet
+  "#33D4FF", // Cyan
+  "#FF3380", // Hot Pink
+  "#80FF33", // Light Lime Green
+  "#3380FF", // Sky Blue
+  "#FF8033", // Peach
+  "#8033FF", // Lavender
+  "#33FF8C", // Mint Green
 ];
 
 const baseColor = "#555";
