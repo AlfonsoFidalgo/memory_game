@@ -1,19 +1,3 @@
-// const cardOne = document.querySelector("#c-1");
-// const cardTwo = document.querySelector("#c-2");
-// const cardThree = document.querySelector("#c-3");
-// const cardFour = document.querySelector("#c-4");
-// const cardFive = document.querySelector("#c-5");
-// const cardSix = document.querySelector("#c-6");
-// const cardSeven = document.querySelector("#c-7");
-// const cardEight = document.querySelector("#c-8");
-// const cardNine = document.querySelector("#c-9");
-// const cardTen = document.querySelector("#c-10");
-// const cardEleven = document.querySelector("#c-11");
-// const cardTwelve = document.querySelector("#c-12");
-// const cardThirteen = document.querySelector("#c-13");
-// const cardFourteen = document.querySelector("#c-14");
-// const cardFifteen = document.querySelector("#c-15");
-// const cardSixteen = document.querySelector("#c-16");
 const cards = document.querySelectorAll(".card");
 
 const startButton = document.querySelector("#start");
@@ -116,24 +100,20 @@ function playCardSound(cardId, duration = 500, player = "computer") {
 function playNote(frequency, duration, player, type = "sine") {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-  // Create an oscillator
   const oscillator = audioContext.createOscillator();
   oscillator.type = type; // Type of waveform: 'sine', 'square', 'triangle', 'sawtooth'
-  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime); // Frequency in Hz
+  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
 
-  // Connect the oscillator to the audio output
   oscillator.connect(audioContext.destination);
 
-  // Start playing the note
   oscillator.start();
 
   if (player !== "computer") {
     return [oscillator, audioContext];
   }
-  // Stop the note after the specified duration
   setTimeout(() => {
     oscillator.stop();
-    audioContext.close(); // Clean up the audio context
+    audioContext.close();
   }, duration);
 }
 
