@@ -156,27 +156,20 @@ async function simulateMouseDownWithDuration(element, duration, cardId) {
 }
 
 cards.forEach((card, index) => {
-  card.addEventListener("mousedown", (event) => {
-    [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
-    oscillatorGlobal = oscillator;
-    audioContextGlobal = audioContext;
-    event.target.style.backgroundColor = cardColors[index];
-  });
-  card.addEventListener("touchstart", (event) => {
-    [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
-    oscillatorGlobal = oscillator;
-    audioContextGlobal = audioContext;
-    event.target.style.backgroundColor = cardColors[index];
+  ["mousedown", "touchstart"].forEach((eventType) => {
+    card.addEventListener(eventType, (event) => {
+      [oscillator, audioContext] = playCardSound(event.target.id, 500, "user");
+      oscillatorGlobal = oscillator;
+      audioContextGlobal = audioContext;
+      event.target.style.backgroundColor = cardColors[index];
+    });
   });
 
-  card.addEventListener("mouseup", (event) => {
-    oscillatorGlobal.stop();
-    audioContextGlobal.close();
-    event.target.style.backgroundColor = baseColor;
-  });
-  card.addEventListener("touchend", (event) => {
-    oscillatorGlobal.stop();
-    audioContextGlobal.close();
-    event.target.style.backgroundColor = baseColor;
+  ["mouseup", "touchend"].forEach((eventType) => {
+    card.addEventListener(eventType, (event) => {
+      oscillatorGlobal.stop();
+      audioContextGlobal.close();
+      event.target.style.backgroundColor = baseColor;
+    });
   });
 });
