@@ -34,19 +34,19 @@
 }
 
 .board {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2px;
     width: 600px;
-    height: 600px;
+    height: auto;
     margin: 0 auto;
 }
 
 .card {
-    width: 150px;
-    height: 150px;
     background-color: #555;
     border: 2px solid #333;
     border-radius: 8px;
+    aspect-ratio: 1 / 1;
 }
 
 .card:hover {
@@ -93,4 +93,25 @@ button:disabled {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+}
+
+
+@media (max-width: 768px) {
+    .board {
+        width: 90vw;
+        grid-template-columns: repeat(4, 1fr); 
+        grid-gap: 2px;
+    }
+
+    h1 {
+        margin: 5px 0;
+    }
+
+    button{
+        margin: 10px auto;
+    }
+
+    .card {
+        aspect-ratio: 1 / 1;
+    }
 }
