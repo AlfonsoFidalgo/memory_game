@@ -50,7 +50,6 @@ let audioContextGlobal;
 startButton.addEventListener("click", async () => {
   gameOn = true;
   startButton.disabled = true;
-  document.querySelector(".board").style.display = "flex";
   document.querySelector("#game-over").style.display = "none";
   await new Promise((resolve) => setTimeout(resolve, 500));
   while (gameOn) {
